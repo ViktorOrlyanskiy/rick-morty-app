@@ -1,10 +1,10 @@
 import { Box, Card, Grid } from "@mui/material";
 import { HeadTag } from "@/widgets/Head/HeadTag";
 
-export default function Characters() {
+export default function Episode() {
     return (
         <>
-            <HeadTag title="Characters" desc="Characters page" />
+            <HeadTag title="Episode" desc="Episode page" />
             <Grid container spacing={2}>
                 <Grid item xs={3}>
                     <Card component="section" variant="outlined">

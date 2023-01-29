@@ -6,10 +6,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 interface StProps {
-    active?: boolean;
+    activeLink: boolean;
     children: string;
 }
-
+// пеерделать
 const StTypography = styled(Typography)`
     cursor: pointer;
     transition: all 0.3s;
@@ -19,12 +19,12 @@ const StTypography = styled(Typography)`
         color: ${grey[400]};
     }
     ${(props: StProps) =>
-        props.active &&
+        props.activeLink &&
         `
-    color: ${grey[500]};
-    border-bottom: 3px solid ${grey[500]};
+    color: #3f88f7;
+    border-bottom: 3px solid #3f88f7;
     &:hover {
-        color: ${grey[500]};
+        color: #3f88f7;
     }
     `}
 `;
@@ -41,9 +41,7 @@ export const NavbarLink: React.FC<NavbarLink> = ({ path, name }) => {
     return (
         <Grid item>
             <Link href={path}>
-                <StTypography active={isActiveLink || undefined} fontSize={24}>
-                    {name}
-                </StTypography>
+                <StTypography fontSize={20}>{name}</StTypography>
             </Link>
         </Grid>
     );

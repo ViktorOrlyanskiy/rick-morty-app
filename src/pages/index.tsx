@@ -1,7 +1,26 @@
 import { Box, Card, Grid } from "@mui/material";
 import { HeadTag } from "@/widgets/Head/HeadTag";
+import { FetchCharacters } from "@/features/fetchCharacters";
+import { CharacterSchema } from "@/entities/Character";
 
-export default function Characters() {
+interface CharactersProps {
+    characters: CharacterSchema[];
+}
+
+export async function getServerSideProps() {
+    const response = await fetch("https://rickandmortyapi.com/api/character");
+    const data = await response.json();
+
+    return {
+        props: {
+            characters: data.results,
+        },
+    };
+}
+
+const Characters: React.FC<CharactersProps> = ({ characters }) => {
+    console.log(characters);
+
     return (
         <>
             <HeadTag title="Characters" desc="Characters page" />
@@ -12,18 +31,11 @@ export default function Characters() {
                     </Card>
                 </Grid>
                 <Grid item xs={9}>
-                    <Card component="section" variant="outlined">
-                        <Box sx={{ my: 2 }}>
-                            {[...new Array(32)]
-                                .map(
-                                    () =>
-                                        "Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et."
-                                )
-                                .join("\n")}
-                        </Box>
-                    </Card>
+                    <FetchCharacters characters={characters} />
                 </Grid>
             </Grid>
         </>
     );
-}
+};
+
+export default Characters;

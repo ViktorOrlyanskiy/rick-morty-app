@@ -43,7 +43,7 @@ export const Navbar: React.FC = () => {
                                     fontWeight="light"
                                     fontSize={28}
                                 >
-                                    Rick & Morty <span>WiKi</span>
+                                    Rick & Morty WiKi
                                 </Typography>
                             </Link>
                         </Grid>

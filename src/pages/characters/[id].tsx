@@ -4,6 +4,7 @@ import { CharacterInfo, CharacterSchema } from "@/entities/Character";
 import type { GetServerSidePropsContext } from "next";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
+import { client, GET_CHARACTER_BY_ID } from "@/shared/api/apolloClient";
 
 interface CharacterProps {
     character: CharacterSchema;
@@ -12,14 +13,14 @@ interface CharacterProps {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const id = context?.params?.id;
 
-    const response = await fetch(
-        `https://rickandmortyapi.com/api/character/${id}`
-    );
-    const character: CharacterSchema = await response.json();
+    const { data } = await client.query({
+        query: GET_CHARACTER_BY_ID,
+        variables: { id },
+    });
 
     return {
         props: {
-            character,
+            character: data.character as CharacterSchema,
         },
     };
 }

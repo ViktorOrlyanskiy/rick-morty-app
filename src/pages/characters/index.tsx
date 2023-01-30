@@ -2,18 +2,21 @@ import { Box, Card, Grid } from "@mui/material";
 import { HeadTag } from "@/widgets/Head/HeadTag";
 import { FetchCharacters } from "@/features/fetchCharacters";
 import { CharacterSchema } from "@/entities/Character";
+import { client, GET_ALL_CHARACTERS } from "@/shared/api/apolloClient";
 
 interface CharactersProps {
     characters: CharacterSchema[];
 }
 
 export async function getServerSideProps() {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
-    const data = await response.json();
+    const { data } = await client.query({
+        query: GET_ALL_CHARACTERS,
+        variables: { page: 1 },
+    });
 
     return {
         props: {
-            characters: data.results,
+            characters: data?.characters?.results as CharacterSchema,
         },
     };
 }

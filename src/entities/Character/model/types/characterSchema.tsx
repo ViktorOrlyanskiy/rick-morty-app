@@ -1,10 +1,10 @@
 export interface Origin {
+    id: string;
     name: string;
-    url: string;
 }
 export interface Location {
+    id: string;
     name: string;
-    url: string;
 }
 export interface CharacterSchema {
     id: number;

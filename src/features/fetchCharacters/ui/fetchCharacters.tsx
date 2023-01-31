@@ -8,7 +8,6 @@ interface FetchCharactersProps {
 export const FetchCharacters: React.FC<FetchCharactersProps> = (props) => {
     const { characters } = props;
 
-    console.log(characters);
     return (
         <Grid container spacing={2} alignContent="stretch">
             {characters?.map((character: CharacterSchema) => (

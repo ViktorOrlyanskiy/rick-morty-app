@@ -4,7 +4,11 @@ import { CharacterInfo, CharacterSchema } from "@/entities/Character";
 import type { GetServerSidePropsContext } from "next";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
-import { client, GET_CHARACTER_BY_ID } from "@/shared/api/apolloClient";
+import {
+    client,
+    fetchCharacterById,
+    GET_CHARACTER_BY_ID,
+} from "@/shared/api/apolloClient";
 
 interface CharacterProps {
     character: CharacterSchema;
@@ -13,10 +17,7 @@ interface CharacterProps {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const id = context?.params?.id;
 
-    const { data } = await client.query({
-        query: GET_CHARACTER_BY_ID,
-        variables: { id },
-    });
+    const { data } = await fetchCharacterById(id);
 
     return {
         props: {

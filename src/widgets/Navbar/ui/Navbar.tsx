@@ -4,6 +4,7 @@ import AppBar from "@mui/material/AppBar";
 import Slide from "@mui/material/Slide";
 import Grid from "@mui/material/Grid";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
+import { CharacterSearch } from "@/features/CharacterSearch";
 import { ContainerPage } from "@/shared/ui/ContainerPage";
 import { NavbarLinks } from "./NavbarLinks";
 
@@ -48,9 +49,7 @@ export const Navbar: React.FC = () => {
                             </Link>
                         </Grid>
                         <Grid item xs={5}>
-                            <Typography fontWeight="light" textAlign="center">
-                                SEARCH
-                            </Typography>
+                            <CharacterSearch />
                         </Grid>
                         <NavbarLinks />
                     </Grid>

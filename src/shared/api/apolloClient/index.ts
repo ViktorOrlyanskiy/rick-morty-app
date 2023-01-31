@@ -1,2 +1,3 @@
 export { client } from "./apolloClient";
-export * from "./query/character";
+export * from "./queries/character/schema";
+export * from "./queries/character/query";

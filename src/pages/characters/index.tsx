@@ -1,29 +1,33 @@
-import { Box, Card, Grid } from "@mui/material";
-import { HeadTag } from "@/widgets/Head/HeadTag";
-import { FetchCharacters } from "@/features/fetchCharacters";
 import { CharacterSchema } from "@/entities/Character";
-import { client, GET_ALL_CHARACTERS } from "@/shared/api/apolloClient";
+import { FetchCharacters } from "@/features/fetchCharacters";
+import { GetServerSidePropsContext } from "next";
+import { Card, Grid } from "@mui/material";
+import { HeadTag } from "@/widgets/Head/HeadTag";
+import { filterCharacters, getAllCharacters } from "@/shared/api/apolloClient";
 
 interface CharactersProps {
     characters: CharacterSchema[];
 }
 
-export async function getServerSideProps() {
-    const { data } = await client.query({
-        query: GET_ALL_CHARACTERS,
-        variables: { page: 1 },
-    });
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+    const { name } = context?.query;
+
+    let response: any;
+
+    if (name) {
+        response = await filterCharacters(name);
+    } else {
+        response = await getAllCharacters(1);
+    }
 
     return {
         props: {
-            characters: data?.characters?.results as CharacterSchema,
+            characters: response?.data?.characters?.results as CharacterSchema,
         },
     };
 }
 
 const Characters: React.FC<CharactersProps> = ({ characters }) => {
-    console.log(characters);
-
     return (
         <>
             <HeadTag title="Characters" desc="Characters page" />

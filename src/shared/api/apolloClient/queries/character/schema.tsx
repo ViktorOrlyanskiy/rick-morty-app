@@ -1,20 +1,41 @@
 import { gql } from "@apollo/client";
 
+const USER_FOR_CHARACTER_PAGE = gql`
+    fragment UserForCharactersPage on Character {
+        id
+        name
+        image
+        status
+        gender
+        location {
+            name
+        }
+    }
+`;
+
 export const GET_ALL_CHARACTERS = gql`
+    ${USER_FOR_CHARACTER_PAGE}
     query getAllCharacters($page: Int!) {
         characters(page: $page) {
             info {
                 count
             }
             results {
-                id
-                name
-                image
-                status
-                gender
-                location {
-                    name
-                }
+                ...UserForCharactersPage
+            }
+        }
+    }
+`;
+
+export const FILTER_CHARACTERS = gql`
+    ${USER_FOR_CHARACTER_PAGE}
+    query filterCharacters($filter: FilterCharacter) {
+        characters(filter: $filter) {
+            info {
+                count
+            }
+            results {
+                ...UserForCharactersPage
             }
         }
     }

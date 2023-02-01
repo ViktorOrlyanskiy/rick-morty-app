@@ -12,7 +12,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = memo((props) => {
     const router = useRouter();
 
     const onClickCard = useCallback(() => {
-        router.push(`characters/${id}`);
+        router.push(`/characters/${id}`);
     }, [id, router]);
 
     return (

@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const USER_FOR_CHARACTER_PAGE = gql`
+export const USER_FOR_CHARACTER_PAGE = gql`
     fragment UserForCharactersPage on Character {
         id
         name

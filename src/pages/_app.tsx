@@ -7,6 +7,8 @@ import { theme } from "@/shared/consts/theme";
 import { Main } from "@/widgets/Main/Main";
 
 export default function App({ Component, pageProps }: AppProps) {
+    console.log(theme);
+
     return (
         <CssBaseline>
             <ThemeProvider theme={theme}>

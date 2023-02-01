@@ -1,19 +1,18 @@
-import styled from "@emotion/styled";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import { grey } from "@mui/material/colors";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import styled from "@emotion/styled";
+import Grid from "@mui/material/Grid";
+import { grey } from "@mui/material/colors";
 
 interface StProps {
-    activeLink: boolean;
+    activeLink?: boolean;
     children: string;
 }
-// пеерделать
-const StTypography = styled(Typography)`
-    cursor: pointer;
-    transition: all 0.3s;
+const StSpan = styled.span`
     border-bottom: 3px solid ${grey[800]};
+    transition: all 0.3s;
+    font-size: 20px;
+    cursor: pointer;
 
     &:hover {
         color: ${grey[400]};
@@ -41,7 +40,7 @@ export const NavbarLink: React.FC<NavbarLink> = ({ path, name }) => {
     return (
         <Grid item>
             <Link href={path}>
-                <StTypography fontSize={20}>{name}</StTypography>
+                <StSpan activeLink={isActiveLink}>{name}</StSpan>
             </Link>
         </Grid>
     );

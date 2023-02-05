@@ -11,7 +11,7 @@ export const NavbarLinks: React.FC = () => {
             alignItems="center"
             justifyContent="right"
         >
-            <NavbarLink path="/" name="Characters" />
+            <NavbarLink path="/characters" name="Characters" />
             <NavbarLink path="/episodes" name="Episodes" />
             <NavbarLink path="/locations" name="Locations" />
         </Grid>

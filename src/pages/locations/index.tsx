@@ -1,5 +1,6 @@
 import { LocationCard, LocationSchema } from "@/entities/Location";
 import { fetchAllLocatios } from "@/shared/api/apolloClient";
+import { List } from "@/shared/ui/List";
 import { HeadTag } from "@/widgets/Head/HeadTag";
 import { Grid } from "@mui/material";
 
@@ -22,9 +23,10 @@ const Locations: React.FC<LocationsProps> = ({ locations }) => {
         <>
             <HeadTag title="Locations" desc="Locations page" />
             <Grid container spacing={2} flexDirection="column">
-                {locations.map((location) => (
-                    <LocationCard key={location.id} location={location} />
-                ))}
+                <List
+                    data={locations}
+                    renderItem={(data) => <LocationCard location={data} />}
+                />
             </Grid>
         </>
     );

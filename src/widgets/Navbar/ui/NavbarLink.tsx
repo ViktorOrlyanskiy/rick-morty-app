@@ -34,8 +34,10 @@ interface NavbarLink {
 }
 
 export const NavbarLink: React.FC<NavbarLink> = ({ path, name }) => {
-    const router = useRouter();
-    const isActiveLink = router.pathname === path;
+    const { pathname } = useRouter();
+    console.log(pathname);
+    console.log(path);
+    const isActiveLink = pathname.includes(path);
 
     return (
         <Grid item>

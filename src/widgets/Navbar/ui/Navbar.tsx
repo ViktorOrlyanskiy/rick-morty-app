@@ -7,6 +7,7 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { CharacterSearch } from "@/features/CharacterSearch";
 import { ContainerPage } from "@/shared/ui/ContainerPage";
 import { NavbarLinks } from "./NavbarLinks";
+import { NavbarSearch } from "./NavbarSearch";
 
 interface Props {
     window?: () => Window;
@@ -36,6 +37,7 @@ export const Navbar: React.FC = () => {
                         alignItems="center"
                         justifyContent="space-between"
                         padding="15px 0"
+                        minHeight={72}
                     >
                         <Grid item xs={3}>
                             <Link href="/">
@@ -48,9 +50,7 @@ export const Navbar: React.FC = () => {
                                 </Typography>
                             </Link>
                         </Grid>
-                        <Grid item xs={5}>
-                            <CharacterSearch />
-                        </Grid>
+                        <NavbarSearch />
                         <NavbarLinks />
                     </Grid>
                 </ContainerPage>

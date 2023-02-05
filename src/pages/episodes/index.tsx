@@ -1,5 +1,6 @@
 import { EpisodeCard, EpisodeSchema } from "@/entities/Episode";
 import { fetchAllEpisodes } from "@/shared/api/apolloClient";
+import { List } from "@/shared/ui/List";
 import { HeadTag } from "@/widgets/Head/HeadTag";
 import { Grid } from "@mui/material";
 
@@ -22,9 +23,10 @@ const Episodes: React.FC<EpisodesProps> = ({ episodes }) => {
         <>
             <HeadTag title="Episodes" desc="Episodes page" />
             <Grid container spacing={2} flexDirection="column">
-                {episodes.map((episode) => (
-                    <EpisodeCard key={episode.id} episode={episode} />
-                ))}
+                <List
+                    data={episodes}
+                    renderItem={(data) => <EpisodeCard episode={data} />}
+                />
             </Grid>
         </>
     );

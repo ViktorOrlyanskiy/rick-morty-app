@@ -1,4 +1,5 @@
 import { CharacterCard, CharacterSchema } from "@/entities/Character";
+import { List } from "@/shared/ui/List";
 import { Grid } from "@mui/material";
 
 interface FetchCharactersProps {
@@ -10,9 +11,10 @@ export const FetchCharacters: React.FC<FetchCharactersProps> = (props) => {
 
     return (
         <Grid container spacing={2} alignContent="stretch">
-            {characters?.map((character: CharacterSchema) => (
-                <CharacterCard key={character.id} {...character} />
-            ))}
+            <List
+                data={characters}
+                renderItem={(data) => <CharacterCard {...data} />}
+            />
         </Grid>
     );
 };

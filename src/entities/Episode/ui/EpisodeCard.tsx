@@ -1,18 +1,18 @@
-import { LocationSchema } from "@/entities/Location";
 import { Box, Card, CardActionArea, Grid, Typography } from "@mui/material";
 import { useRouter } from "next/router";
-import { useCallback } from "react";
+import { memo, useCallback } from "react";
+import { EpisodeSchema } from "../model/types/episodeSchema";
 
-interface LocationCardProps {
-    location: LocationSchema;
+interface EpisodeCardProps {
+    episode: EpisodeSchema;
 }
 
-export const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
-    const { id, name, type } = location;
+export const EpisodeCard: React.FC<EpisodeCardProps> = memo(({ episode }) => {
+    const { id, name, air_date } = episode;
     const router = useRouter();
 
     const onClickCard = useCallback(
-        () => router.push(`/locations/${id}`),
+        () => router.push(`/episodes/${id}`),
         [id, router]
     );
 
@@ -22,11 +22,11 @@ export const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
                 <CardActionArea onClick={onClickCard}>
                     <Box p={2}>
                         <Typography fontSize={28}>
-                            {id}. {name} - {type}
+                            {id}. {name} - {air_date}
                         </Typography>
                     </Box>
                 </CardActionArea>
             </Card>
         </Grid>
     );
-};
+});

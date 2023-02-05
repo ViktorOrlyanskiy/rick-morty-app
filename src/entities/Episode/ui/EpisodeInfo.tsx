@@ -2,23 +2,21 @@ import { Badge } from "@/shared/ui/Badge";
 import { Card, Box, Typography } from "@mui/material";
 import { memo } from "react";
 
-interface LocationInfoProps {
+interface EpisodeInfoProps {
     name: string;
-    type: string;
-    dimension: string;
+    air_date: string;
     count: number;
 }
 
-export const LocationInfo: React.FC<LocationInfoProps> = memo((props) => {
-    const { name, type, dimension, count } = props;
+export const EpisodeInfo: React.FC<EpisodeInfoProps> = memo((props) => {
+    const { name, air_date, count } = props;
     return (
         <Card>
             <Box position="relative" p={2}>
                 <Typography component="h1" fontSize={48}>
-                    Location: <span>{name}</span>
+                    Episode: <span>{name}</span>
                 </Typography>
-                <Typography fontSize={28}>Type: {type}</Typography>
-                <Typography fontSize={28}>Dimension: {dimension}</Typography>
+                <Typography fontSize={28}>Air Data: {air_date}</Typography>
                 <Badge>
                     <Typography fontSize={24} fontWeight="bold">
                         Characters: {count}

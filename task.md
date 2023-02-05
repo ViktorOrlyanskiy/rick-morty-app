@@ -1,1 +1,2 @@
 - добавить дефолтную картинку
+- перенести FetchCharacters в entities

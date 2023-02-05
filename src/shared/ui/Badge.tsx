@@ -1,7 +1,7 @@
 import { memo, ReactNode } from "react";
 import styled from "@emotion/styled";
 
-const StCount = styled.div`
+const StBadge = styled.div`
     position: absolute;
     top: 10px;
     right: 10px;
@@ -16,10 +16,10 @@ const StCount = styled.div`
     font-weight: 700;
 `;
 
-interface CountProps {
+interface BadgeProps {
     children: ReactNode;
 }
 
-export const Count: React.FC<CountProps> = memo(({ children }) => {
-    return <StCount>{children}</StCount>;
+export const Badge: React.FC<BadgeProps> = memo(({ children }) => {
+    return <StBadge>{children}</StBadge>;
 });

@@ -1,14 +1,10 @@
 import { Box, Button } from "@mui/material";
-import { HeadTag } from "@/widgets/Head/HeadTag";
-import { CharacterInfo, CharacterSchema } from "@/entities/Character";
 import type { GetServerSidePropsContext } from "next";
-import { useCallback } from "react";
 import { useRouter } from "next/router";
-import {
-    client,
-    fetchCharacterById,
-    GET_CHARACTER_BY_ID,
-} from "@/shared/api/apolloClient";
+import { useCallback } from "react";
+import { HeadTag } from "@/widgets/Head";
+import { CharacterInfo, CharacterSchema } from "@/entities/Character";
+import { fetchCharacterById } from "@/shared/api/apolloClient";
 
 interface CharacterProps {
     character: CharacterSchema;

@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Grid";
-import { CharacterSearch } from "@/features/CharacterSearch";
 import { useRouter } from "next/router";
+import { CharacterSearch } from "@/features/CharacterSearch";
 import { switchElement } from "@/shared/lib/switchElement";
 
 export const NavbarSearch: React.FC = () => {

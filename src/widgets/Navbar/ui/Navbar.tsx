@@ -1,10 +1,9 @@
-import Link from "next/link";
-import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
-import Slide from "@mui/material/Slide";
 import Grid from "@mui/material/Grid";
+import Slide from "@mui/material/Slide";
+import Typography from "@mui/material/Typography";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import { CharacterSearch } from "@/features/CharacterSearch";
+import Link from "next/link";
 import { ContainerPage } from "@/shared/ui/ContainerPage";
 import { NavbarLinks } from "./NavbarLinks";
 import { NavbarSearch } from "./NavbarSearch";

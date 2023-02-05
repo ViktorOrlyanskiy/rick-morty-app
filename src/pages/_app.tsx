@@ -1,10 +1,10 @@
-import type { AppProps } from "next/app";
-import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Navbar } from "@/widgets/Navbar/ui/Navbar";
-import "@/styles/globals.css";
+import { ThemeProvider } from "@mui/material/styles";
+import type { AppProps } from "next/app";
+import { Main } from "@/widgets/Main";
+import { Navbar } from "@/widgets/Navbar";
 import { theme } from "@/shared/consts/theme";
-import { Main } from "@/widgets/Main/Main";
+import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
     console.log(theme);

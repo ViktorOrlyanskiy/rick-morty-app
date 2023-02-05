@@ -1,6 +1,6 @@
+import { Grid } from "@mui/material";
 import { CharacterCard, CharacterSchema } from "@/entities/Character";
 import { List } from "@/shared/ui/List";
-import { Grid } from "@mui/material";
 
 interface FetchCharactersProps {
     characters: CharacterSchema[];

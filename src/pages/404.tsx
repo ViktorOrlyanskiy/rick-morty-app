@@ -1,7 +1,7 @@
-import { HeadTag } from "@/widgets/Head/HeadTag";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { HeadTag } from "@/widgets/Head";
 
 export default function NotFoundPage() {
     const router = useRouter();

@@ -1,5 +1,5 @@
-import { Box, Card, Grid } from "@mui/material";
-import { HeadTag } from "@/widgets/Head/HeadTag";
+import { Card, Grid } from "@mui/material";
+import { HeadTag } from "@/widgets/Head";
 
 export default function Episode() {
     return (

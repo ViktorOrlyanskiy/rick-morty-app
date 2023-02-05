@@ -1,10 +1,10 @@
-import { memo } from "react";
-import Image from "next/image";
 import { Grid, Card, Typography } from "@mui/material";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { memo } from "react";
 import { CharacterSchema } from "../model/types/characterSchema";
 import { Field } from "./Field";
 import { Status } from "./Status";
-import { useRouter } from "next/router";
 
 interface CharacterInfoProps extends CharacterSchema {}
 

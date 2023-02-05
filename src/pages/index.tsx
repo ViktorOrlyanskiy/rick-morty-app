@@ -1,15 +1,9 @@
-import { Box, Card, Grid } from "@mui/material";
-import { HeadTag } from "@/widgets/Head/HeadTag";
+import { Card, Grid } from "@mui/material";
+import { GetServerSidePropsContext } from "next";
+import { HeadTag } from "@/widgets/Head";
 import { FetchCharacters } from "@/features/fetchCharacters";
 import { CharacterSchema } from "@/entities/Character";
-import {
-    client,
-    GET_ALL_CHARACTERS,
-    FILTER_CHARACTERS,
-    filterCharacters,
-    getAllCharacters,
-} from "@/shared/api/apolloClient";
-import { GetServerSidePropsContext } from "next";
+import { filterCharacters, getAllCharacters } from "@/shared/api/apolloClient";
 
 interface CharactersProps {
     characters: CharacterSchema[];

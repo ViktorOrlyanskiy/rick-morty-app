@@ -1,6 +1,6 @@
-import { Badge } from "@/shared/ui/Badge";
 import { Card, Box, Typography } from "@mui/material";
 import { memo } from "react";
+import { Badge } from "@/shared/ui/Badge";
 
 interface LocationInfoProps {
     name: string;

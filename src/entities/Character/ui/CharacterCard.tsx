@@ -1,7 +1,7 @@
-import { memo, useCallback } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
 import { Grid, Card, Typography, CardActionArea } from "@mui/material";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { memo, useCallback } from "react";
 import { CharacterSchema } from "../model/types/characterSchema";
 import { Status } from "./Status";
 

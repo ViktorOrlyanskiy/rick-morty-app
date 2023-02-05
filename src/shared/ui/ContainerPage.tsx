@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { Container } from "@mui/material";
 import styled from "@emotion/styled";
+import { Container } from "@mui/material";
+import { FC } from "react";
 
 const StContainer = styled(Container)`
     max-width: 1180px;

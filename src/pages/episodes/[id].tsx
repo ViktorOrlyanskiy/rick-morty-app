@@ -1,9 +1,9 @@
-import { EpisodeInfo, EpisodeSchema } from "@/entities/Episode";
-import { FetchCharacters } from "@/features/fetchCharacters";
-import { fetchEpisodeById } from "@/shared/api/apolloClient";
-import { HeadTag } from "@/widgets/Head/HeadTag";
 import { Box } from "@mui/material";
 import type { GetServerSidePropsContext } from "next";
+import { HeadTag } from "@/widgets/Head";
+import { FetchCharacters } from "@/features/fetchCharacters";
+import { EpisodeInfo, EpisodeSchema } from "@/entities/Episode";
+import { fetchEpisodeById } from "@/shared/api/apolloClient";
 
 interface EpisodeProps {
     episode: EpisodeSchema;

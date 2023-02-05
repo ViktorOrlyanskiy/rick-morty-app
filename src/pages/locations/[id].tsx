@@ -1,10 +1,9 @@
-import type { GetServerSidePropsContext } from "next";
 import { Box } from "@mui/material";
-import { HeadTag } from "@/widgets/Head/HeadTag";
+import type { GetServerSidePropsContext } from "next";
+import { HeadTag } from "@/widgets/Head";
+import { FetchCharacters } from "@/features/fetchCharacters";
 import { LocationInfo, LocationSchema } from "@/entities/Location";
 import { fetchLocationById } from "@/shared/api/apolloClient";
-import { CharacterCard } from "@/entities/Character";
-import { FetchCharacters } from "@/features/fetchCharacters";
 
 interface LocationProps {
     location: LocationSchema;

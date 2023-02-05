@@ -1,8 +1,8 @@
-import { CharacterSchema } from "@/entities/Character";
-import { FetchCharacters } from "@/features/fetchCharacters";
-import { GetServerSidePropsContext } from "next";
 import { Card, Grid } from "@mui/material";
-import { HeadTag } from "@/widgets/Head/HeadTag";
+import { GetServerSidePropsContext } from "next";
+import { HeadTag } from "@/widgets/Head";
+import { FetchCharacters } from "@/features/fetchCharacters";
+import { CharacterSchema } from "@/entities/Character";
 import { filterCharacters, getAllCharacters } from "@/shared/api/apolloClient";
 
 interface CharactersProps {

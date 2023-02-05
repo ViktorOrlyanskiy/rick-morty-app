@@ -1,8 +1,8 @@
+import { Grid } from "@mui/material";
+import { HeadTag } from "@/widgets/Head";
 import { EpisodeCard, EpisodeSchema } from "@/entities/Episode";
 import { fetchAllEpisodes } from "@/shared/api/apolloClient";
 import { List } from "@/shared/ui/List";
-import { HeadTag } from "@/widgets/Head/HeadTag";
-import { Grid } from "@mui/material";
 
 interface EpisodesProps {
     episodes: EpisodeSchema[];

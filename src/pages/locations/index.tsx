@@ -1,8 +1,8 @@
+import { Grid } from "@mui/material";
+import { HeadTag } from "@/widgets/Head";
 import { LocationCard, LocationSchema } from "@/entities/Location";
 import { fetchAllLocatios } from "@/shared/api/apolloClient";
 import { List } from "@/shared/ui/List";
-import { HeadTag } from "@/widgets/Head/HeadTag";
-import { Grid } from "@mui/material";
 
 interface LocationsProps {
     locations: LocationSchema[];

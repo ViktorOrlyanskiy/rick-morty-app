@@ -1,7 +1,7 @@
-import { LocationSchema } from "@/entities/Location";
 import { Box, Card, CardActionArea, Grid, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
+import { LocationSchema } from "@/entities/Location";
 
 interface LocationCardProps {
     location: LocationSchema;

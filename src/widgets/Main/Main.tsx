@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 
 const StMain = styled.main`
     padding-top: 150px;
+    padding-bottom: 50px;
 `;
 
 interface Props {

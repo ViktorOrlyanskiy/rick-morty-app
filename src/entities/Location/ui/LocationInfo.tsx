@@ -13,7 +13,7 @@ export const LocationInfo: React.FC<LocationInfoProps> = memo((props) => {
     const { name, type, dimension, count } = props;
     return (
         <Card>
-            <Box position="relative">
+            <Box position="relative" p={2}>
                 <Typography component="h1" fontSize={48}>
                     Location: <span>{name}</span>
                 </Typography>

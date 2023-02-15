@@ -5,6 +5,7 @@ import { useCallback } from "react";
 import { HeadTag } from "@/widgets/Head";
 import { CharacterInfo, CharacterSchema } from "@/entities/Character";
 import { fetchCharacterById } from "@/shared/api/apolloClient";
+import { getRouteCharacters } from "@/shared/consts/routes";
 
 interface CharacterProps {
     character: CharacterSchema;
@@ -27,7 +28,7 @@ const CharacterPage: React.FC<CharacterProps> = ({ character }) => {
     const router = useRouter();
 
     const onClickBack = useCallback(() => {
-        router.push("/characters");
+        router.push(getRouteCharacters());
     }, [router]);
 
     return (

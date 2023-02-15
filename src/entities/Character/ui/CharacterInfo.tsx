@@ -1,7 +1,8 @@
-import { Grid, Card, Typography } from "@mui/material";
+import { Grid, Typography, Paper } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { memo } from "react";
+import { getRouteLocation } from "@/shared/consts/routes";
 import { CharacterSchema } from "../model/types/characterSchema";
 import { Field } from "./Field";
 import { Status } from "./Status";
@@ -16,18 +17,18 @@ export const CharacterInfo: React.FC<CharacterInfoProps> = memo((props) => {
 
     const onClickOrigin = () => {
         if (origin.id) {
-            router.push("/locations/" + origin.id);
+            router.push(getRouteLocation(origin.id));
         }
     };
 
     const onClickLocation = () => {
         if (location.id) {
-            router.push("/locations/" + location.id);
+            router.push(getRouteLocation(location.id));
         }
     };
 
     return (
-        <Card>
+        <Paper elevation={4}>
             <Grid container>
                 <Image
                     priority
@@ -49,23 +50,23 @@ export const CharacterInfo: React.FC<CharacterInfoProps> = memo((props) => {
                 >
                     <Status variant="info" status={status} />
                     <Typography
+                        mb={1}
                         component="h1"
                         fontSize={36}
-                        mb={1}
                         fontWeight="bold"
                     >
                         {name}
                     </Typography>
-                    <Typography fontSize={20} mb={0.5}>
+                    <Typography fontSize={20} gutterBottom>
                         <Field label="Species" value={species} />
                     </Typography>
-                    <Typography fontSize={20} mb={0.5}>
+                    <Typography fontSize={20} gutterBottom>
                         <Field label="Type" value={type} />
                     </Typography>
-                    <Typography fontSize={20} mb={0.5}>
+                    <Typography fontSize={20} gutterBottom>
                         <Field label="Gender" value={gender} />
                     </Typography>
-                    <Typography fontSize={20} mb={0.5}>
+                    <Typography fontSize={20} gutterBottom>
                         <Field
                             type="link"
                             label="Origin"
@@ -73,7 +74,7 @@ export const CharacterInfo: React.FC<CharacterInfoProps> = memo((props) => {
                             onClick={onClickOrigin}
                         />
                     </Typography>
-                    <Typography fontSize={20} mb={0.5}>
+                    <Typography fontSize={20} gutterBottom>
                         <Field
                             type="link"
                             label="Last Location"
@@ -83,6 +84,6 @@ export const CharacterInfo: React.FC<CharacterInfoProps> = memo((props) => {
                     </Typography>
                 </Grid>
             </Grid>
-        </Card>
+        </Paper>
     );
 });

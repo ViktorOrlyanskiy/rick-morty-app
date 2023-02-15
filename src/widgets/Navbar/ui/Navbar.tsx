@@ -4,6 +4,7 @@ import Slide from "@mui/material/Slide";
 import Typography from "@mui/material/Typography";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Link from "next/link";
+import { getRouteMain } from "@/shared/consts/routes";
 import { ContainerPage } from "@/shared/ui/ContainerPage";
 import { NavbarLinks } from "./NavbarLinks";
 import { NavbarSearch } from "./NavbarSearch";
@@ -39,7 +40,7 @@ export const Navbar: React.FC = () => {
                         minHeight={72}
                     >
                         <Grid item xs={3}>
-                            <Link href="/">
+                            <Link href={getRouteMain()}>
                                 <Typography
                                     variant="h1"
                                     fontWeight="light"

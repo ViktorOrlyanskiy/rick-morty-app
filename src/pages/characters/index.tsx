@@ -2,6 +2,7 @@ import { Card, Grid } from "@mui/material";
 import { GetServerSidePropsContext } from "next";
 import { HeadTag } from "@/widgets/Head";
 import { FetchCharacters } from "@/features/fetchCharacters";
+import { FilteringCharacters } from "@/features/FilteringCharacters";
 import { CharacterSchema } from "@/entities/Character";
 import { filterCharacters, getAllCharacters } from "@/shared/api/apolloClient";
 
@@ -34,7 +35,7 @@ const Characters: React.FC<CharactersProps> = ({ characters }) => {
             <Grid container spacing={2}>
                 <Grid item xs={3}>
                     <Card component="section" variant="outlined">
-                        сайдбар
+                        <FilteringCharacters />
                     </Card>
                 </Grid>
                 <Grid item xs={9}>

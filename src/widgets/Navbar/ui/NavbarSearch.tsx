@@ -1,17 +1,18 @@
 import Grid from "@mui/material/Grid";
 import { useRouter } from "next/router";
 import { CharacterSearch } from "@/features/CharacterSearch";
+import { getRouteCharacters, getRouteMain } from "@/shared/consts/routes";
 import { switchElement } from "@/shared/lib/switchElement";
 
 export const NavbarSearch: React.FC = () => {
     const { pathname } = useRouter();
     const cases = [
         {
-            value: "/",
+            value: getRouteMain(),
             element: <CharacterSearch />,
         },
         {
-            value: "/characters",
+            value: getRouteCharacters(),
             element: <CharacterSearch />,
         },
     ];

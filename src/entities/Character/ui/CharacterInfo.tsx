@@ -10,7 +10,6 @@ import { Status } from "./Status";
 interface CharacterInfoProps extends CharacterSchema {}
 
 export const CharacterInfo: React.FC<CharacterInfoProps> = memo((props) => {
-    console.log(props);
     const { name, status, species, type, gender, image, origin, location } =
         props;
     const router = useRouter();

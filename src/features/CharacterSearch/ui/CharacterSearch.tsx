@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Box, InputBase } from "@mui/material";
 import { useRouter } from "next/router";
 import { ChangeEvent, KeyboardEvent, memo, useState } from "react";
+import { getRouteCharacters } from "@/shared/consts/routes";
 
 const StInput = styled(InputBase)`
     width: 100%;
@@ -17,11 +18,11 @@ interface CharacterSearchProps {}
 
 export const CharacterSearch: React.FC<CharacterSearchProps> = memo(() => {
     const router = useRouter();
-    const [query, setQuery] = useState("");
+    const [query, setQuery] = useState(router.query?.name || "");
 
     const search = () => {
         router.push({
-            pathname: "/",
+            pathname: getRouteCharacters(),
             query: query ? { name: query } : undefined,
         });
     };

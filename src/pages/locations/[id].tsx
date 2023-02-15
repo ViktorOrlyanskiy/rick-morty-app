@@ -23,7 +23,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 const LocationPage: React.FC<LocationProps> = ({ location }) => {
     const { name, type, dimension, residents } = location;
-    console.log(location);
 
     return (
         <>

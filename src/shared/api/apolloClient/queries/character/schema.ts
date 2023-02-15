@@ -19,6 +19,7 @@ export const GET_ALL_CHARACTERS = gql`
         characters(page: $page) {
             info {
                 count
+                pages
             }
             results {
                 ...UserForCharactersPage
@@ -33,6 +34,7 @@ export const FILTER_CHARACTERS = gql`
         characters(filter: $filter) {
             info {
                 count
+                pages
             }
             results {
                 ...UserForCharactersPage

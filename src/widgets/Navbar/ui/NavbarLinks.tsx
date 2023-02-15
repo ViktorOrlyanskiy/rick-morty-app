@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
 import {
     getRouteCharacters,
-    getRouteEposodes,
+    getRouteEpisodes,
     getRouteLocations,
 } from "@/shared/consts/routes";
 import { NavbarLink } from "./NavbarLink";
@@ -17,7 +17,7 @@ export const NavbarLinks: React.FC = () => {
             justifyContent="right"
         >
             <NavbarLink path={getRouteCharacters()} name="Characters" />
-            <NavbarLink path={getRouteEposodes()} name="Episodes" />
+            <NavbarLink path={getRouteEpisodes()} name="Episodes" />
             <NavbarLink path={getRouteLocations()} name="Locations" />
         </Grid>
     );

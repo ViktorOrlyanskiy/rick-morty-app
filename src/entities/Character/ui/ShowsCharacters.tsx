@@ -1,12 +1,13 @@
 import { Grid } from "@mui/material";
-import { CharacterCard, CharacterSchema } from "@/entities/Character";
 import { List } from "@/shared/ui/List";
+import { CharacterSchema } from "../model/types/characterSchema";
+import { CharacterCard } from "./CharacterCard";
 
-interface FetchCharactersProps {
+interface ShowsCharactersProps {
     characters: CharacterSchema[];
 }
 
-export const FetchCharacters: React.FC<FetchCharactersProps> = (props) => {
+export const ShowsCharacters: React.FC<ShowsCharactersProps> = (props) => {
     const { characters } = props;
 
     return (

@@ -1,8 +1,7 @@
 import { Card, Grid } from "@mui/material";
 import { GetServerSidePropsContext } from "next";
 import { HeadTag } from "@/widgets/Head";
-import { FetchCharacters } from "@/features/fetchCharacters";
-import { CharacterSchema } from "@/entities/Character";
+import { CharacterSchema, ShowsCharacters } from "@/entities/Character";
 import { filterCharacters, getAllCharacters } from "@/shared/api/apolloClient";
 
 interface CharactersProps {
@@ -38,7 +37,7 @@ const Characters: React.FC<CharactersProps> = ({ characters }) => {
                     </Card>
                 </Grid>
                 <Grid item xs={9}>
-                    <FetchCharacters characters={characters} />
+                    <ShowsCharacters characters={characters} />
                 </Grid>
             </Grid>
         </>

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import type { GetServerSidePropsContext } from "next";
 import { HeadTag } from "@/widgets/Head";
-import { FetchCharacters } from "@/features/fetchCharacters";
+import { ShowsCharacters } from "@/entities/Character";
 import { LocationInfo, LocationSchema } from "@/entities/Location";
 import { fetchLocationById } from "@/shared/api/apolloClient";
 
@@ -34,7 +34,7 @@ const LocationPage: React.FC<LocationProps> = ({ location }) => {
                 dimension={dimension}
             />
             <Box mt={6}>
-                <FetchCharacters characters={residents} />
+                <ShowsCharacters characters={residents} />
             </Box>
         </>
     );

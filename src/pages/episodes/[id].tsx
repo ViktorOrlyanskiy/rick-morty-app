@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import type { GetServerSidePropsContext } from "next";
 import { HeadTag } from "@/widgets/Head";
-import { FetchCharacters } from "@/features/fetchCharacters";
+import { ShowsCharacters } from "@/entities/Character";
 import { EpisodeInfo, EpisodeSchema } from "@/entities/Episode";
 import { fetchEpisodeById } from "@/shared/api/apolloClient";
 
@@ -33,7 +33,7 @@ const EpisodePage: React.FC<EpisodeProps> = ({ episode }) => {
                 count={characters.length}
             />
             <Box mt={6}>
-                <FetchCharacters characters={characters} />
+                <ShowsCharacters characters={characters} />
             </Box>
         </>
     );

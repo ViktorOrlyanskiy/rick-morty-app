@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { getRouteCharacters } from "@/shared/consts/routes";
 import { filterQuery } from "@/shared/lib/filterQuery";
 
 /**
@@ -19,7 +18,7 @@ export function useChangeFilter(
     const changeFilter = (filter: string) => {
         setFilter(filter);
         router.push({
-            pathname: getRouteCharacters(),
+            pathname: router.pathname,
             query: {
                 ...filterQuery(router.query, filterName),
                 [filterName]: filter,

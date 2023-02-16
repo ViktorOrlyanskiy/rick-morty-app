@@ -2,8 +2,14 @@ import { gql } from "@apollo/client";
 import { USER_FOR_CHARACTER_PAGE } from "../character/schema";
 
 export const GET_ALL_LOCATIONS = gql`
-    query {
-        locations {
+    query getAllLocations($page: Int!) {
+        locations(page: $page) {
+            info {
+                count
+                next
+                prev
+                pages
+            }
             results {
                 id
                 name

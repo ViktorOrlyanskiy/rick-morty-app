@@ -1,7 +1,7 @@
 import { Card, Grid } from "@mui/material";
 import { GetServerSidePropsContext } from "next";
 import { HeadTag } from "@/widgets/Head";
-import { CharacterPagination } from "@/features/CharacterPagination";
+import { Pagination } from "@/features/Pagination";
 import { FetchCharacters } from "@/features/fetchCharacters";
 import { FilteringCharacters } from "@/features/FilteringCharacters";
 import { CharacterSchema } from "@/entities/Character";
@@ -56,10 +56,7 @@ const Characters: React.FC<CharactersProps> = ({ characters, info }) => {
                 </Grid>
                 <Grid item xs={9}>
                     <FetchCharacters characters={characters} />
-                    <CharacterPagination
-                        page={Number(info.page)}
-                        pages={info.pages}
-                    />
+                    <Pagination page={Number(info.page)} pages={info.pages} />
                 </Grid>
             </Grid>
         </>

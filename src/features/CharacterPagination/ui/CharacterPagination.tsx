@@ -29,6 +29,10 @@ export const CharacterPagination: React.FC<Props> = (props) => {
         });
     };
 
+    if (!page || !pages || pages < 2) {
+        return null;
+    }
+
     return (
         <Box mt={5}>
             <StPagination

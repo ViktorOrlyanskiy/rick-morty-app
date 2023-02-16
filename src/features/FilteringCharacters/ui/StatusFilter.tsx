@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from "@mui/material";
-import { useState } from "react";
 import { MuiRadioButton } from "@/shared/ui/MuiRadioButton";
+import { useChangeFilter } from "../model/hooks/useChangeFilter";
 
 interface StatusFilterProps {}
 
@@ -10,14 +10,8 @@ const statuses = [
     { value: "unknown", label: "unknown" },
 ];
 
-export const StatusFilter: React.FC<StatusFilterProps> = (props) => {
-    const {} = props;
-
-    const [status, setStatus] = useState<string>("");
-
-    const changeStatus = (status: string) => {
-        setStatus(status);
-    };
+export const StatusFilter: React.FC<StatusFilterProps> = () => {
+    const [status, changeStatus] = useChangeFilter("status");
 
     return (
         <>

@@ -1,24 +1,25 @@
 import { Box, Divider, Typography } from "@mui/material";
-import { useState } from "react";
 import { MuiSelect } from "@/shared/ui/MuiSelect";
+import { useChangeFilter } from "../model/hooks/useChangeFilter";
 
 interface SpeciesFilterProps {}
 
 const specieses = [
-    { value: "male", label: "male" },
-    { value: "female", label: "female" },
-    { value: "genderless", label: "genderless" },
+    { value: "human", label: "human" },
+    { value: "alien", label: "alien" },
+    { value: "humanoid", label: "humanoid" },
+    { value: "poopybutthole", label: "poopybutthole" },
+    { value: "mythological", label: "mythological" },
+    { value: "animal", label: "animal" },
+    { value: "desease", label: "desease" },
+    { value: "robot", label: "robot" },
+    { value: "cronenberg", label: "cronenberg" },
+    { value: "planet", label: "planet" },
     { value: "unknown", label: "unknown" },
 ];
 
-export const SpeciesFilter: React.FC<SpeciesFilterProps> = (props) => {
-    const {} = props;
-
-    const [species, setSpecies] = useState<string>("");
-
-    const changeSpecies = (gender: string) => {
-        setSpecies(gender);
-    };
+export const SpeciesFilter: React.FC<SpeciesFilterProps> = () => {
+    const [species, changeSpecies] = useChangeFilter("species");
 
     return (
         <>

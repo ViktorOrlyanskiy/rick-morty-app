@@ -5,10 +5,10 @@ import {
     GET_CHARACTER_BY_ID,
 } from "./schema";
 
-export const filterCharacters = async (name: string | string[]) => {
+export const filterCharacters = async (rest: any) => {
     return await client.query({
         query: FILTER_CHARACTERS,
-        variables: { filter: { name } },
+        variables: { filter: { ...rest } },
     });
 };
 

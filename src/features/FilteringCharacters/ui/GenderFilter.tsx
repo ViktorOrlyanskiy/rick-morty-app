@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from "@mui/material";
-import { useState } from "react";
 import { MuiSelect } from "@/shared/ui/MuiSelect";
+import { useChangeFilter } from "../model/hooks/useChangeFilter";
 
 interface GenderFilterProps {}
 
@@ -11,14 +11,8 @@ const genders = [
     { value: "unknown", label: "unknown" },
 ];
 
-export const GenderFilter: React.FC<GenderFilterProps> = (props) => {
-    const {} = props;
-
-    const [gender, setGender] = useState<string>("");
-
-    const changeGender = (gender: string) => {
-        setGender(gender);
-    };
+export const GenderFilter: React.FC<GenderFilterProps> = () => {
+    const [gender, changeGender] = useChangeFilter("gender");
 
     return (
         <>

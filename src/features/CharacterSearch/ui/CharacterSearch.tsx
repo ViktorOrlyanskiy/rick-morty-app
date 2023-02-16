@@ -18,7 +18,8 @@ interface CharacterSearchProps {}
 
 export const CharacterSearch: React.FC<CharacterSearchProps> = memo(() => {
     const router = useRouter();
-    const [query, setQuery] = useState(router.query?.name || "");
+    const queryFromQuery = (router?.query?.query || "") as string;
+    const [query, setQuery] = useState(queryFromQuery);
 
     const search = () => {
         router.push({

@@ -10,6 +10,7 @@ import {
     getAllCharacters,
     InfoSchema,
 } from "@/shared/api/apolloClient";
+import { isEmptyObject } from "@/shared/lib/isEmptyObject";
 
 interface InfoProps extends InfoSchema {
     page: string;
@@ -21,12 +22,12 @@ interface CharactersProps {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-    const { name, page } = context?.query;
+    const { page, ...rest } = context?.query;
 
     let response: any;
 
-    if (name) {
-        response = await filterCharacters(name);
+    if (!isEmptyObject(rest)) {
+        response = await filterCharacters(rest);
     } else {
         response = await getAllCharacters(Number(page) || 1);
     }

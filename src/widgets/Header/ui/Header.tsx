@@ -27,7 +27,7 @@ function HideOnScroll(props: Props) {
     );
 }
 
-export const Navbar: React.FC = () => {
+export const Header: React.FC = () => {
     return (
         <HideOnScroll>
             <AppBar>

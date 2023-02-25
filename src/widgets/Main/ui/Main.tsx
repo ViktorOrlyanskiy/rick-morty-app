@@ -4,7 +4,8 @@ import { ContainerPage } from "@/shared/ui/ContainerPage";
 
 const StMain = styled.main`
     padding-top: 150px;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
+    flex: 1 0 auto;
 `;
 
 interface Props {

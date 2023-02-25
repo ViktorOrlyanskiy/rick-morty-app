@@ -1,27 +1,24 @@
-import { Card, Grid } from "@mui/material";
-import { GetServerSidePropsContext } from "next";
+import { Box } from "@mui/material";
+import Image from "next/image";
 import { HeadTag } from "@/widgets/Head";
-import { CharacterSchema, ShowsCharacters } from "@/entities/Character";
-import { filterCharacters, getAllCharacters } from "@/shared/api/apolloClient";
-
+import {
+    getRandomCharacters,
+    ShowsRandomCharacters,
+} from "@/features/ShowsRandomCharacters";
+import { CharacterSchema } from "@/entities/Character";
+import { fetchCharactersByIds } from "@/shared/api/apolloClient";
+import MainLogo from "../../public/main-image.png";
 interface CharactersProps {
     characters: CharacterSchema[];
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-    const { name } = context?.query;
-
-    let response: any;
-
-    if (name) {
-        response = await filterCharacters(name);
-    } else {
-        response = await getAllCharacters(1);
-    }
+export async function getServerSideProps() {
+    const randomIds = getRandomCharacters();
+    const response = await fetchCharactersByIds(randomIds);
 
     return {
         props: {
-            characters: response?.data?.characters?.results as CharacterSchema,
+            characters: response?.data?.charactersByIds as CharacterSchema[],
         },
     };
 }
@@ -29,17 +26,24 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 const Characters: React.FC<CharactersProps> = ({ characters }) => {
     return (
         <>
-            <HeadTag title="Characters" desc="Characters page" />
-            <Grid container spacing={2}>
-                <Grid item xs={3}>
-                    <Card component="section" variant="outlined">
-                        сайдбар
-                    </Card>
-                </Grid>
-                <Grid item xs={9}>
-                    <ShowsCharacters characters={characters} />
-                </Grid>
-            </Grid>
+            <HeadTag title="Rick & Morty" desc="Home page" />
+            <Box mb={15}>
+                <Image
+                    priority
+                    src={MainLogo}
+                    alt="main-logo"
+                    width={1000}
+                    height={1000}
+                    style={{
+                        display: "block",
+                        maxWidth: "100%",
+                        width: "90%",
+                        height: "auto",
+                        margin: "0 auto",
+                    }}
+                />
+            </Box>
+            <ShowsRandomCharacters characters={characters} />
         </>
     );
 };
